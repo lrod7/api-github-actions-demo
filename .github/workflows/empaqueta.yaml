@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: assets-for-download
-        path: $GITHUB_WORKSPACE/paquete
+        path: paquete
     #- name: Create Docker image
       #run: |
        # docker build . -t josechval/apiflask:latest
