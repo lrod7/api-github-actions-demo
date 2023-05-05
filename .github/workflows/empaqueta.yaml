@@ -39,6 +39,11 @@ jobs:
         mkdir $GITHUB_WORKSPACE/paquete
         cp $GITHUB_WORKSPACE/.tox/.pkg/dist/*.tar.gz $GITHUB_WORKSPACE/paquete/
         ls $GITHUB_WORKSPACE/paquete/
+    - name: Use the Upload Artifact GitHub Action
+      uses: actions/upload-artifact@v2
+      with: 
+        name: assets-for-download
+        path: $GITHUB_WORKSPACE/paquete
     #- name: Create Docker image
       #run: |
        # docker build . -t josechval/apiflask:latest
