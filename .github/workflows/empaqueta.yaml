@@ -36,8 +36,8 @@ jobs:
         tox
     - name: Move package
       run: |
-        mkdir paquete
-        cp .tox/.pkg/dist/apiflask-test-demo-1.1.0.tar.gz paquete/
+        mkdir $GITHUB_WORKSPACE/paquete
+        cp GITHUB_WORKSPACE/.tox/.pkg/dist/apiflask-test-demo-1.1.0.tar.gz paquete/
     #- name: Create Docker image
       #run: |
        # docker build . -t josechval/apiflask:latest
