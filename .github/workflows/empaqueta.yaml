@@ -25,12 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Package with tox
       run: |
         tox
@@ -40,11 +34,7 @@ jobs:
         cp $GITHUB_WORKSPACE/.tox/.pkg/dist/*.tar.gz $GITHUB_WORKSPACE/paquete/
         ls $GITHUB_WORKSPACE/paquete/
     - name: Use the Upload Artifact GitHub Action
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with: 
         name: assets-for-download
         path: paquete
-    #- name: Create Docker image
-      #run: |
-       # docker build . -t josechval/apiflask:latest
-        
