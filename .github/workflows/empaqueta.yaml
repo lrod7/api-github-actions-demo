@@ -34,7 +34,11 @@ jobs:
     - name: Package with tox
       run: |
         tox
-    - name: Create Docker image
+    - name: Move package
       run: |
-        docker build . -t josechval/apiflask:latest
+        mkdir paquete
+        cp .tox/.pkg/dist/apiflask-test-demo-1.1.0.tar.gz paquete/
+    #- name: Create Docker image
+      #run: |
+       # docker build . -t josechval/apiflask:latest
         
