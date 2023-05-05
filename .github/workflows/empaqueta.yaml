@@ -34,3 +34,7 @@ jobs:
     - name: Package with tox
       run: |
         tox
+    - name: Create Docker image
+      run: |
+        docker build . -t josechval/apiflask:latest
+        
